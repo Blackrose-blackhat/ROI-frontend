@@ -72,13 +72,13 @@ const ReferralTree = () => {
 
     return (
         <div className="min-h-screen bg-gray-50/50 dark:bg-slate-950 p-6 md:p-12 font-sans">
-            <div className="max-w-5xl mx-auto space-y-8">
-                <div className="flex items-center justify-between">
+            <div className="max-w-7xl mx-auto space-y-8">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div>
                         <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Referral Network</h1>
                         <p className="text-slate-500 mt-1">Visualize your team structure and growth.</p>
                     </div>
-                    <Button variant="outline" asChild className="border-slate-200 hover:bg-white hover:text-indigo-600">
+                    <Button variant="outline" asChild className="border-slate-200 hover:bg-white hover:text-indigo-600 w-full sm:w-auto">
                         <Link to="/dashboard">&larr; Back to Dashboard</Link>
                     </Button>
                 </div>
@@ -90,11 +90,11 @@ const ReferralTree = () => {
                             <CardTitle className="text-lg text-slate-700">My Network Tree</CardTitle>
                         </div>
                     </CardHeader>
-                    <CardContent className="min-h-[500px] p-6">
+                    <CardContent className="min-h-[500px] p-0 overflow-x-auto overflow-y-hidden">
                         {loading ? (
                             <div className="flex justify-center p-12 text-slate-400">Loading network data...</div>
                         ) : tree.length > 0 ? (
-                            <div className="pl-2">
+                            <div className="p-6 min-w-[600px]">
                                 {tree.map((node) => <TreeNode key={node._id} node={node} />)}
                             </div>
                         ) : (
